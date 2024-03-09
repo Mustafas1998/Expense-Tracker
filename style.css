@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: Sans-Serif, Arial !important;
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    
+  }
+  body,
+  html {
+    height: 100%;
+  }
+
+  img {
+    width: 40%;
+  }
+
+  h1{
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .container{
+    width: 100%;
+    height: auto;
+  }
+  .box{
+    width: 75%;
+    margin: 0 auto;
+    
+  }
+
+  .floatleft {
+    float: left;
+  }
+  .floatright {
+    float: right;
+  }
+  .Title h1{
+    padding: 10px;
+    border: 5px solid #71564e;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .Title{
+    background-color: rgb(179, 214, 249);
+  }
+  .Expense-website{
+    width: 100%;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .content-left{
+    width:40%
+  }
+
+  .enter-budget-box,
+  .add-expense-box {
+    padding: 8px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  .enter-budget-box {
+    border: 4px solid #71564e;
+  }
+  .add-expense-box {
+    border: 4px solid #71564e;
+  }
+
+  .content-left label{
+    font-size: large;
+    font-style: initial;
+  }
+
+  
+
+
+
+
+
+
+
+
