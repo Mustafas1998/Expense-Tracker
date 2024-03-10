@@ -1,9 +1,12 @@
+
 class Processing{
     constructor(){
         this.budget = document.getElementById("budget-amount");
         this.expenses = document.getElementById("expenses-amount");
         this.balance = document.getElementById("balance-amount");
+        this.currencySymbol = document.getElementById("currency-symbol");
     }
+
     updateBudget(budget, expense){
         this.budget.innerHTML = budget;
         this.expenses.innerHTML = expense;
@@ -21,6 +24,30 @@ class Processing{
     }
 }
 
+// class CurrencyProcesssing{
+//     constructor(){
+//         this.currencies = [];
+//         this.apiurl = 'https://rich-erin-angler-hem.cyclic.app/students/available';
+//     }
+
+//     CurrencyFetch(){
+//         return fetch(this.apiurl,{
+            
+//         })
+//         .then  (response =>{
+//             if(!response.ok){
+//                 throw Error('Response Error');
+//             }
+//             return response.json();
+//         }).then(data=>{
+//             this.currencies=data.currencies;
+//             return this.currencies;
+//         }).catch(error =>{
+//             console.error('Error Fetching', error);
+//             return [];
+//         });
+//     }   
+// }
 
 class item{
     itemlist = []
@@ -143,6 +170,8 @@ class main{
     }
 }
 main.init();
+
+
 
 
 
