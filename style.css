@@ -1,12 +1,11 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
   }
   body {
     font-family: Sans-Serif, Arial !important;
     transition: all 0.3 ease;
-    -webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
   }
 
   body,
@@ -25,11 +24,14 @@
   }
 
   .container{
-    width: 100%;
-    height: auto;
+    max-width: 100%;
+    padding: 20px;
+    margin: 0 auto;
+
   }
   .box{
-    width: 75%;
+    width: 70%;
+    
     margin: 0 auto;
     
   }
@@ -110,8 +112,8 @@
   }
 
   .balances {
-    padding: 10px;
-    margin-bottom: 25px;
+    padding: 5px;
+    margin-bottom: 15px;
     margin-right: -5px;
   }
   .balances .items {
@@ -120,8 +122,9 @@
     display: inline-block;
   }
   .balances .items p {
-    font-size: 20px;
+    font-size: 13px;
     text-transform: uppercase;
+    margin-bottom: 5px;
   }
   .balances .items p,
   .logo {
@@ -132,13 +135,15 @@
     text-align: center;
     border: 3px solid #71564e;
     padding: 2px 0;
+    width: 100%;
   }
   .expenses {
     padding: 5px;
     font-size: 14px;
   }
   .expenses table td {
-
+    padding: 8px;
+    font-size: 12px;
     width: 5%;
   }
   #expense-list {
@@ -147,6 +152,11 @@
     text-align: center;
     height: 210px;
     overflow-y: scroll;
+  }
+
+  .expenses table th{
+    padding: 8px;
+    font-size: 12px;
   }
   
   .budget-amount,
@@ -161,7 +171,73 @@
   }
   
 
+  .header {
+    display: flex;
+    font-size: 30px;
+    justify-content: center;
+    background-color: #71564e;
+    padding: 10px 0;
+  }
+  
+  .nav-header {
+    display: flex;
+    align-items: center;
+    
+    gap: 10px;
+  }
+  .nav-header .logo-header img {
+    width: 40px;
+    border-radius: 50%;
+  }
+  nav ul {
+    color: white;
+    list-style-type: none;
+    display: flex;
+    
+    gap: 10px;
+    
+  }
+  nav ul li {
+    opacity: 100%;
+    color: black;
+    font-size: 18px;
+    border: 3px solid #ffffff;
+    border-radius:5px;
+    padding: 6px 12px;
+  }
+  
+  nav ul li:hover {
+    opacity: 70%;
+    cursor: pointer;
+    color: rgb(179, 214, 249);
+  }
+  
+  .hero-img-container {
+    width: 100%;
+    height: auto;
+  }
+  
+  .hero-img {
+    width: 100%;
+    height: auto;
+  }
 
+  @media screen and (max-width: 768px) {
+    .content-left,
+    .content-right {
+      width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    
+    .box {
+      width: 100%;
+      padding: 10px;
+    }
+    
+  }
+  
   
 
 
