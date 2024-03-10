@@ -72,6 +72,44 @@ class item{
 }   
 
 
+class main{
+    static init(){
+        this.enterBudget();
+        this.addItem();
+        document.getElementById("reset-app-btn").addEventListener("click", ()=>{
+            location.reload();
+        });
+    }
+    static Addyourbudget(){
+        const add_budget_btn = document.getElementById("add-budget-btn");
+        const getBudgetAmount = document.getElementById("budget");
+        const getcurrency = document.getElementById("currency");
+        const currency = document.querySelectorAll("#currency-symbol");
+        add_budget_btn.addEventListener("click", ()=>{
+            if(getBudgetAmount.value.trim()=== "" || +getBudgetAmount.value<1 || !+getBudgetAmount.value )
+            {
+                getBudgetAmount.value=""
+                return;
+            }
+            else if(getcurrency.value.trim ==="")
+            {
+                return;
+            }
+            const balanceUpdate = new Processing();
+            balanceUpdate.updateBudget(getBudgetAmount.value, 0);
+            for (const curr of currency){
+                curr.innerHTML = getcurrency.value;
+            }
+            getBudgetAmount.value = "";
+            add_budget_btn.disabled = true;
+            document.querySelector(".add-expense-box").classList.add("visible");
+        });
+    }
+    static addyourItem(){
+        
+    }
+}
+
 
 
 
