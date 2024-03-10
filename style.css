@@ -132,20 +132,17 @@
     margin-bottom: 10px;
   }
 
-  .expenses table {
-    text-align: center;
-    border: 3px solid #71564e;
-    padding: 2px 0;
-    width: 100%;
-  }
   .expenses {
     padding: 5px;
     font-size: 14px;
   }
+  .expenses table {
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 5px 0;
+  }
   .expenses table td {
-    padding: 8px;
-    font-size: 12px;
-    width: 5%;
+    width: 1%;
   }
   #expense-list {
     margin-top: 20px;
@@ -154,10 +151,10 @@
     height: 210px;
     overflow-y: scroll;
   }
-
-  .expenses table th{
-    padding: 8px;
-    font-size: 12px;
+  
+  #expense-list td {
+    height: 30px;
+    width: 1%;
   }
   
   .budget-amount,
@@ -222,6 +219,8 @@
     width: 100%;
     height: auto;
   }
+
+
 
   @media screen and (max-width: 768px) {
     .content-left,
