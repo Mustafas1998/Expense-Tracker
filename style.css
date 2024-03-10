@@ -4,18 +4,18 @@
   }
   body {
     font-family: Sans-Serif, Arial !important;
-    transition: all 0.3s ease;
+    transition: all 0.3 ease;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
-    
   }
+
   body,
   html {
     height: 100%;
   }
 
   img {
-    width: 40%;
+    max-width: 100%;
   }
 
   h1{
@@ -67,10 +67,10 @@
     margin-bottom: 20px;
   }
   .enter-budget-box {
-    border: 4px solid #71564e;
+    border: 3px solid #71564e;
   }
   .add-expense-box {
-    border: 4px solid #71564e;
+    border: 3px solid #71564e;
   }
 
   .content-left label{
@@ -78,7 +78,92 @@
     font-style: initial;
   }
 
+  input {
+    width: 80%;
+    padding: 5px;
+    margin-bottom: 10px;
+    margin-top: 2px;
+    border: none;
+  }
+  input {
+    width: 80%;
+    padding: 5px;
+    margin-bottom: 10px;
+    margin-top: 2px;
+    border: 2px solid black;
+  }
+
+  .content-left button {
+    padding: 10px 15px;
+    background: #aa8f77;
+    border: 1px solid;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 5px;
+  }
   
+  .content-right {
+    width: 59%;
+    height: 80vh;
+    border: 3px solid #71564e;
+    border-radius: 5px;
+  }
+
+  .balances {
+    padding: 10px;
+    margin-bottom: 25px;
+    margin-right: -5px;
+  }
+  .balances .items {
+    text-align: center;
+    width: 32%;
+    display: inline-block;
+  }
+  .balances .items p {
+    font-size: 20px;
+    text-transform: uppercase;
+  }
+  .balances .items p,
+  .logo {
+    margin-bottom: 10px;
+  }
+
+  .expenses table {
+    text-align: center;
+    border: 3px solid #71564e;
+    padding: 2px 0;
+  }
+  .expenses {
+    padding: 5px;
+    font-size: 14px;
+  }
+  .expenses table td {
+
+    width: 5%;
+  }
+  #expense-list {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    height: 210px;
+    overflow-y: scroll;
+  }
+  
+  .budget-amount,
+  .balance-amount,
+  .expenses-amount {
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  #currency {
+    margin-bottom: 20px;
+  }
+  
+
+
+  
+
 
 
 
