@@ -22,7 +22,39 @@ class Processing{
 }
 
 
+class item{
+    itemlist = []
+    constructor(list){
+        this.itemlist = list;
+        this.updateBalances();
+        this.showexpenseItem(this.itemlist) 
+    }
 
+    updateBalances(){
+        let expenseMoney = 0;
+        for(const item of this.itemlist){
+            expenseMoney += item.amount;
+        }
+        const balanceObject = new Processing();
+        balanceObject.updateBalance(expenseMoney);
+    }
+    deleteItem(expenseID){
+        let index = 0;
+        const balanceObject = new Processing();
+        for(const item of this.itemlist){
+            if(item.id == expenseID){
+                balanceObject.deleteExpense(item.amount);
+                break;
+            }
+            index++;
+        }
+        this.itemlist.splice(index, 1);
+        this.showexpenseItem(this.itemlist);
+    }
+    showexpenseItem(){
+        
+    }
+}   
 
 
 
