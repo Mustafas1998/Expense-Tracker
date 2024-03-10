@@ -12,7 +12,7 @@ class Processing{
 
     updateBalance(expense){
         this.expenses.innerHTML = expense;
-        this.balance.innerHTML = this.budget.innerHTML.toString() -+expense;
+        this.balance.innerHTML = +this.budget.innerHTML.toString() - +expense;
     }
 
     deleteExpense(deleteExpense){
@@ -33,7 +33,7 @@ class item{
     updateBalances(){
         let expenseMoney = 0;
         for(const item of this.itemlist){
-            expenseMoney += item.amount;
+            expenseMoney += +item.amount;
         }
         const balanceObject = new Processing();
         balanceObject.updateBalance(expenseMoney);
@@ -51,31 +51,34 @@ class item{
         this.itemlist.splice(index, 1);
         this.showexpenseItem(this.itemlist);
     }
-    showexpenseItem(expenseList){
+    showexpenseItem(expenseList) {
         const expense_list = document.getElementById("expense-list");
         expense_list.innerHTML = "";
-        const currency = document.getElementById("currency");
-        if (expenseList && expenseList.lenght > 0){
-            for(const item of expenseList){
-                const ItemRow = document.createElement("tr");
-                ItemRow.innerHTML=`<td>${item.title}</td>
-                <td><span id="">${currency.value}</span> ${item.amount}</td>        
-                <td><button class="del-btn">&times;</button></td>
-                `;
-                const deletbtn = ItemRow.querySelector("del-btn");
-                deletbtn.addEventListener("click", this.deleteItem.bind(this, item.id)
-                );
-                expense_list.append(item)
-            }
+        const getcurrency = document.getElementById("currency");
+        if (expenseList && expenseList.length > 0) {
+          for (const expenseItem of expenseList) {
+            const ItemRow = document.createElement("tr");
+            ItemRow.innerHTML = `
+          <td>${expenseItem.title}</td>
+          <td><span id="">${getcurrency.value}</span> ${expenseItem.amount}</td>        
+          <td><button class="del-btn">&times;</button></td>
+          `;
+            const delBtn = ItemRow.querySelector(".del-btn");
+            delBtn.addEventListener(
+              "click",
+              this.deleteItem.bind(this, expenseItem.id)
+            );
+            expense_list.append(ItemRow);
+          }
         }
-    }
+      }
 }   
 
 
 class main{
     static init(){
-        this.enterBudget();
-        this.addItem();
+        this.Addyourbudget();
+        this.addyourItem();
         document.getElementById("reset-app-btn").addEventListener("click", ()=>{
             location.reload();
         });
@@ -86,12 +89,12 @@ class main{
         const getcurrency = document.getElementById("currency");
         const currency = document.querySelectorAll("#currency-symbol");
         add_budget_btn.addEventListener("click", ()=>{
-            if(getBudgetAmount.value.trim()=== "" || +getBudgetAmount.value<1 || !+getBudgetAmount.value )
+            if(getBudgetAmount.value.trim() === "" || +getBudgetAmount.value <1 || !+getBudgetAmount.value )
             {
                 getBudgetAmount.value=""
                 return;
             }
-            else if(getcurrency.value.trim ==="")
+            else if(getcurrency.value.trim() ==="")
             {
                 return;
             }
@@ -106,11 +109,40 @@ class main{
         });
     }
     static addyourItem(){
-        
+        const expenseList = []
+        const add_expense_btn = document.getElementById("add-expense-btn");
+        const budgetAmount = document.getElementById("budget-amount");
+        const balance = document.getElementById("balance-amount");
+        let expenseTitle = document.getElementById("expense-title");
+        let expenseAmount = document.getElementById("expense-amount");
+
+        add_expense_btn.addEventListener("click", ()=>{
+            if (expenseTitle.value.trim() === "" || !+expenseAmount.value || +expenseAmount.value.trim() === "" || +expenseAmount.value < 1)
+            {
+                expenseTitle.value = "";
+                expenseAmount.value = "";
+                return;
+                
+            }else if (+expenseAmount.value > +budgetAmount.innerHTML.toString()) {
+                alert("Budget Exceeded!");
+                return;
+            }else if (+expenseAmount.value > +balance.innerHTML.toString()) {
+                alert("Not enough money!");
+                return;
+            }
+            const newexpenseItem = {
+                id: Math.random().toString(),
+                title: expenseTitle.value,
+                amount: +expenseAmount.value,
+              };
+            expenseTitle.value = "";
+            expenseAmount.value = "";
+            expenseList.push(newexpenseItem);
+            new item(expenseList);
+    });
     }
 }
-
-
+main.init();
 
 
 
