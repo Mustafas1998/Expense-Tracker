@@ -6,6 +6,7 @@
   body {
     font-family: Sans-Serif, Arial !important;
     transition: all 0.3 ease;
+    background-color: rgb(218, 235, 245);
   }
 
   body,
