@@ -51,8 +51,23 @@ class item{
         this.itemlist.splice(index, 1);
         this.showexpenseItem(this.itemlist);
     }
-    showexpenseItem(){
-        
+    showexpenseItem(expenseList){
+        const expense_list = document.getElementById("expense-list");
+        expense_list.innerHTML = "";
+        const currency = document.getElementById("currency");
+        if (expenseList && expenseList.lenght > 0){
+            for(const item of expenseList){
+                const ItemRow = document.createElement("tr");
+                ItemRow.innerHTML=`<td>${item.title}</td>
+                <td><span id="">${currency.value}</span> ${item.amount}</td>        
+                <td><button class="del-btn">&times;</button></td>
+                `;
+                const deletbtn = ItemRow.querySelector("del-btn");
+                deletbtn.addEventListener("click", this.deleteItem.bind(this, item.id)
+                );
+                expense_list.append(item)
+            }
+        }
     }
 }   
 
